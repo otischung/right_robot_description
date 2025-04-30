@@ -25,7 +25,7 @@
   </collision>
 </link>
 
-<link name="shoulder_1">
+<link name="right_shoulder">
   <inertial>
     <origin xyz="4.7309625928141343e-20 -0.027330882089484587 4.440892098500626e-16" rpy="0 0 0"/>
     <mass value="1.4666981122291527"/>
@@ -46,7 +46,7 @@
   </collision>
 </link>
 
-<link name="upper_arm_1">
+<link name="right_upper_arm">
   <inertial>
     <origin xyz="-0.00826042671284587 -0.1430705592158683 4.440892098500626e-16" rpy="0 0 0"/>
     <mass value="1.9288762922196265"/>
@@ -67,7 +67,7 @@
   </collision>
 </link>
 
-<link name="elbow_1">
+<link name="right_elbow">
   <inertial>
     <origin xyz="1.543004640454404e-17 -0.01796725150273404 9.037215420448774e-14" rpy="0 0 0"/>
     <mass value="0.14390404221962724"/>
@@ -88,7 +88,7 @@
   </collision>
 </link>
 
-<link name="forearm_1">
+<link name="right_forearm">
   <inertial>
     <origin xyz="4.4535538605346875e-18 -0.09502500346990561 0.0" rpy="0 0 0"/>
     <mass value="2.0132130797778944"/>
@@ -109,7 +109,7 @@
   </collision>
 </link>
 
-<link name="wrist_1">
+<link name="right_wrist">
   <inertial>
     <origin xyz="-0.00022630011389284735 0.014473720665365675 5.773159728050814e-15" rpy="0 0 0"/>
     <mass value="0.7029015023306802"/>
@@ -130,7 +130,7 @@
   </collision>
 </link>
 
-<link name="hand_1">
+<link name="right_hand">
   <inertial>
     <origin xyz="-0.015812535108692863 -2.220446049250313e-16 0.0" rpy="0 0 0"/>
     <mass value="0.182460952097612"/>
@@ -151,7 +151,7 @@
   </collision>
 </link>
 
-<link name="upper_clamp_1">
+<link name="right_upper_clamp">
   <inertial>
     <origin xyz="-0.030948116472503368 -1.1102230246251565e-16 -0.006439580407853418" rpy="0 0 0"/>
     <mass value="0.07927921862621917"/>
@@ -172,7 +172,7 @@
   </collision>
 </link>
 
-<link name="lower_clamp_1">
+<link name="right_lower_clamp">
   <inertial>
     <origin xyz="-0.030392197221724593 -1.1102230246251565e-16 0.007533311927162778" rpy="0 0 0"/>
     <mass value="0.07734674619028083"/>
@@ -196,63 +196,63 @@
 <joint name="RJ1" type="revolute">
   <origin xyz="0.0 -0.19651 1.3165" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="shoulder_1"/>
+  <child link="right_shoulder"/>
   <axis xyz="0.0 -1.0 0.0"/>
   <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ2" type="revolute">
   <origin xyz="0.0 -0.068 0.0" rpy="-1.570796 0 0"/>
-  <parent link="shoulder_1"/>
-  <child link="upper_arm_1"/>
+  <parent link="right_shoulder"/>
+  <child link="right_upper_arm"/>
   <axis xyz="1.0 0.0 0.0"/>
   <limit upper="3.141593" lower="1.570796" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ3" type="revolute">
   <origin xyz="0.0 -0.235 0.0" rpy="0 0 0"/>
-  <parent link="upper_arm_1"/>
-  <child link="elbow_1"/>
+  <parent link="right_upper_arm"/>
+  <child link="right_elbow"/>
   <axis xyz="0.0 -1.0 0.0"/>
   <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ4" type="revolute">
   <origin xyz="0.0 -0.039 0.0" rpy="0 0 0"/>
-  <parent link="elbow_1"/>
-  <child link="forearm_1"/>
+  <parent link="right_elbow"/>
+  <child link="right_forearm"/>
   <axis xyz="1.0 0.0 0.0"/>
   <limit upper="2.268928" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ5" type="revolute">
   <origin xyz="0.0 -0.24 0.0" rpy="0 0 0"/>
-  <parent link="forearm_1"/>
-  <child link="wrist_1"/>
+  <parent link="right_forearm"/>
+  <child link="right_wrist"/>
   <axis xyz="-0.0 0.0 1.0"/>
   <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ6" type="revolute">
   <origin xyz="-0.023 0.0 0.0" rpy="0 0 0"/>
-  <parent link="wrist_1"/>
-  <child link="hand_1"/>
+  <parent link="right_wrist"/>
+  <child link="right_hand"/>
   <axis xyz="-1.0 -0.0 -0.0"/>
   <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ7" type="revolute">
   <origin xyz="-0.025 0.0 -0.014" rpy="0 0 0"/>
-  <parent link="hand_1"/>
-  <child link="upper_clamp_1"/>
+  <parent link="right_hand"/>
+  <child link="right_upper_clamp"/>
   <axis xyz="0.0 -1.0 -0.0"/>
   <limit upper="1.22173" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
 <joint name="RJ8" type="revolute">
   <origin xyz="-0.025 0.0 0.014" rpy="0 0 0"/>
-  <parent link="hand_1"/>
-  <child link="lower_clamp_1"/>
+  <parent link="right_hand"/>
+  <child link="right_lower_clamp"/>
   <axis xyz="-0.0 1.0 0.0"/>
   <limit upper="1.22173" lower="0.0" effort="100" velocity="100"/>
   <mimic joint="RJ7" multiplier="1" offset="0"/>
