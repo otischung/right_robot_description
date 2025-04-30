@@ -23,6 +23,26 @@ def generate_launch_description():
 
     rviz_config_file = os.path.join(share_dir, 'config', 'dual_display.rviz')
 
+    left_zeros = {"zeros": {
+        "LJ1": 3.14159265359,
+        "LJ2": 0.0,
+        "LJ3": 1.57079632679,
+        "LJ4": 0.0,
+        "LJ5": 1.57079632679,
+        "LJ6": 1.57079632679,
+        "LJ7": 0.0,
+    }}
+
+    right_zeros = {"zeros": {
+        "RJ1": 0.0,
+        "RJ2": 3.14159265359,
+        "RJ3": 1.57079632679,
+        "RJ4": 0.0,
+        "RJ5": 1.57079632679,
+        "RJ6": 1.57079632679,
+        "RJ7": 0.0,
+    }}
+
     gui_arg = DeclareLaunchArgument(
         name='gui',
         default_value='True'
@@ -54,6 +74,7 @@ def generate_launch_description():
         condition=UnlessCondition(show_gui),
         package='joint_state_publisher',
         executable='joint_state_publisher',
+        parameters=[left_zeros],
         name='left_joint_state_publisher',
         namespace='left'
     )
@@ -62,6 +83,7 @@ def generate_launch_description():
         condition=IfCondition(show_gui),
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
+        parameters=[left_zeros],
         name='left_joint_state_publisher_gui',
         namespace='left',
     )
@@ -70,6 +92,7 @@ def generate_launch_description():
         condition=UnlessCondition(show_gui),
         package='joint_state_publisher',
         executable='joint_state_publisher',
+        parameters=[right_zeros],
         name='right_joint_state_publisher',
         namespace='right'
     )
@@ -78,6 +101,7 @@ def generate_launch_description():
         condition=IfCondition(show_gui),
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
+        parameters=[right_zeros],
         name='right_joint_state_publisher_gui',
         namespace='right',
     )
